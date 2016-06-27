@@ -6,15 +6,16 @@ import (
 type HelloPlugin struct{}
 
 func (c *HelloPlugin) Run(cliConnection plugin.CliConnection, args []string) {
-	cliConnection.CliCommand()
 	if len(args)== 1{
 		fmt.Println("Hello World")
+		return
 	}else{
 		fmt.Print("Hello")
 		for _, value := range args[1:]{
 			fmt.Print(" " + value)
 		}
-		fmt.Println("")
+		fmt.Println()
+		return
 	}
 
 }
